@@ -1,10 +1,11 @@
 from firebase_functions import https_fn
 from firebase_admin import initialize_app
 from firebase_functions import https_fn
-from firebase_functions.params import IntParam, StringParam
+from firebase_functions.params import SecretParam
 from langchain.llms import OpenAI
+import os
 
-OPENAI_API_KEY = StringParam("OPENAI_API_KEY")
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 
 initialize_app()
 
